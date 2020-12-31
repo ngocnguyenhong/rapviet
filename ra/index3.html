@@ -1,0 +1,27 @@
+<html>
+  <body>
+    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+    <video id="video" controls></video>
+    <script>
+    if(Hls.isSupported())
+    {
+        var video = document.getElementById('video');
+        var hls = new Hls();
+        hls.loadSource('Mayu-Nonohara-A-Prank-on-an-Uneducated-Girl/Mayu Nonohara- A Prank on an Uneducated Girl.m3u8');
+        hls.attachMedia(video);
+        hls.on(Hls.Events.MANIFEST_PARSED,function()
+        {
+            video.play();
+        });
+    }
+    else if (video.canPlayType('application/vnd.apple.mpegurl'))
+    {
+        video.src = 'Mayu-Nonohara-A-Prank-on-an-Uneducated-Girl/Mayu Nonohara- A Prank on an Uneducated Girl.m3u8';
+        video.addEventListener('canplay',function()
+        {
+            video.play();
+        });
+    }
+    </script>
+  </body>
+</html>
